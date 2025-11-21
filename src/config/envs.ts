@@ -9,6 +9,8 @@ interface EnvVars {
   DATABASE_URL: string;
   PRODUCT_MICROSERVICE_HOST: string;
   PRODUCT_MICROSERVICE_PORT: number;
+  ORDER_MICROSERVICE_HOST: string;
+  ORDER_MICROSERVICE_PORT: number;
 }
 
 const envVarsSchema = joi
@@ -17,6 +19,8 @@ const envVarsSchema = joi
     DATABASE_URL: joi.string().required(),
     PRODUCT_MICROSERVICE_HOST: joi.string().required(),
     PRODUCT_MICROSERVICE_PORT: joi.number().required(),
+    ORDER_MICROSERVICE_HOST: joi.string().required(),
+    ORDER_MICROSERVICE_PORT: joi.number().required(),
   })
   .unknown(true); // solo valida las variables definidas en el esquema
 
@@ -35,4 +39,6 @@ export const envs = {
   databaseUrl: envVars.DATABASE_URL,
   productMicroserviceHost: envVars.PRODUCT_MICROSERVICE_HOST,
   productMicroservicePort: envVars.PRODUCT_MICROSERVICE_PORT,
+  orderMicroserviceHost: envVars.ORDER_MICROSERVICE_HOST,
+  orderMicroservicePort: envVars.ORDER_MICROSERVICE_PORT,
 };
